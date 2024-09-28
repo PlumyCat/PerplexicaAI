@@ -25,7 +25,7 @@ jobs:
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Push the Docker image
+      - name: Push the Docker images
         run: |
-          docker tag perplexicaaidockerimage ghcr.io/grafkoxlp/perplexicaai:latest && \
+          docker tag perplexica/perplexica-backend ghcr.io/grafkoxlp/perplexicaai:latest && \
           docker push ghcr.io/grafkoxlp/perplexicaai:latest
