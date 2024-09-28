@@ -15,6 +15,9 @@ jobs:
         
       - name: Sync with Original Repo
         run: |
+          git config --global user.email "herschelleon@gmail.com"
+          git config --global user.name "Leon"
+          
           git remote add upstream https://github.com/ItzCrazyKns/Perplexica.git
           git fetch upstream
           git checkout master
