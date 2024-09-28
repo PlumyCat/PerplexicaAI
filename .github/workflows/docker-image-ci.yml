@@ -27,5 +27,5 @@ jobs:
 
       - name: Push the Docker image
         run: |
-          docker tag perplexicaaidockerimage ghcr.io/GrafkoxLP/PerplexicaAI:latest && \
-          docker push ghcr.io/GrafkoxLP/PerplexicaAI:latest
+          docker tag perplexicaaidockerimage ghcr.io/grafkoxlp/perplexicaai:latest && \
+          docker push ghcr.io/grafkoxlp/perplexicaai:latest
