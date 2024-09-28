@@ -19,7 +19,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install docker-compose -y
 
-      - name: Build the Docker image
+      - name: Build the Docker images
         run: docker-compose build
 
       - name: Log in to GitHub Container Registry
@@ -27,5 +27,5 @@ jobs:
 
       - name: Push the Docker images
         run: |
-          docker tag perplexica/perplexica-backend ghcr.io/grafkoxlp/perplexicaai:latest && \
+          docker tag perplexicaai_perplexica-frontend ghcr.io/grafkoxlp/perplexicaai:latest && \
           docker push ghcr.io/grafkoxlp/perplexicaai:latest
