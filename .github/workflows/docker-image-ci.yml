@@ -1,15 +1,13 @@
 name: Docker Image CI
 
 on:
-  workflow_run:
-    workflows: ["Sync Repository"] # Der Name deines Sync-Workflows
-    types:
-      - completed # Auslösen, wenn der Workflow abgeschlossen ist
+  schedule:
+    - cron: '0 0 * * 0' # Läuft jeden Sonntag um Mitternacht
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }} # Nur ausführen, wenn der vorherige Workflow erfolgreich war
 
     steps:
       - name: Checkout Repository
