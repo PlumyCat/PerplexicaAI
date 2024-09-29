@@ -21,5 +21,12 @@ jobs:
           git remote add upstream https://github.com/ItzCrazyKns/Perplexica.git
           git fetch upstream
           git checkout master
-          git merge upstream/master --allow-unrelated-histories
+          
+          # Versuche, die Änderungen zu mergen, aber ignoriere Konflikte
+          git merge upstream/master --strategy-option theirs --allow-unrelated-histories
+          
+          # Konflikte, falls vorhanden, werden so überschrieben
+          git add .
+          git commit -m "Resolve merge conflicts by favoring upstream changes"
+          
           git push origin master
