@@ -22,11 +22,12 @@ jobs:
           git fetch upstream
           git checkout master
           
-          # Versuche, die Änderungen zu mergen, aber ignoriere Konflikte
+          # Merge Änderungen vom Upstream, Konflikte automatisch lösen
           git merge upstream/master --strategy-option theirs --allow-unrelated-histories
           
-          # Konflikte, falls vorhanden, werden so überschrieben
-          git add .
-          git commit -m "Resolve merge conflicts by favoring upstream changes"
-          
-          git push origin master
+          # Prüfe, ob es Änderungen gibt, die gepusht werden müssen
+          if git status | grep -q 'Your branch is ahead'; then
+            git push origin master
+          else
+            echo "Keine Änderungen zum Pushen"
+          fi
